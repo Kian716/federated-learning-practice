@@ -12,7 +12,7 @@ class Server:
         self.model = Model(self.dataset[:, :-1].shape[1])
         self.loss = tf.keras.losses.MeanSquaredError()
 
-    def aggregate(self, clients_vars: dict):
+    def aggregate(self, clients_vars: dict) -> None:
         # 计算每个client的参数改变量
         clients_diffs = []  # [[Variable1_diff, Variable2_diff], [Variable1_diff, Variable2_diff]]
         for client_id, variables in clients_vars.items():
@@ -26,8 +26,7 @@ class Server:
         for i, diff in enumerate(diff_mean):
             temp = tf.Variable(initial_value=self.model.trainable_variables[i])
             self.model.trainable_variables[i].assign(tf.add(temp, self.conf['lambda']*diff))
-        # 将参数传回给各个clients
-        return self.model.trainable_variables
+        # 将参数传回给各个clients，以server.model的形式，故无需return
 
     def model_eval(self):
         y = self.dataset[:, -1]

@@ -18,6 +18,7 @@ class Client:
         # 使用sever端传过来的参数
         for i, var in enumerate(global_model.trainable_variables):
             self.local_model.trainable_variables[i].assign(var)
+        print("--------------client{}-------------".format(self.id))
         for epoch in range(self.conf['num_epochs']):
             for X, y in self.data_iter:
                 with tf.GradientTape() as tape:
