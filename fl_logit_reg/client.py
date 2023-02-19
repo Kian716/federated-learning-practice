@@ -11,7 +11,7 @@ class Client:
         self.local_model = Model(self.dataset[:, :-1].shape[1])
         self.data_iter = tf.data.Dataset.from_tensor_slices((self.dataset[:, :-1], self.dataset[:, -1])).\
             shuffle(buffer_size=dataset.shape[0]).batch(self.conf['batch_size'])
-        self.loss = tf.keras.losses.MeanSquaredError()
+        self.loss = tf.keras.losses.BinaryCrossentropy(from_logits=True)
         self.optimizer = tf.keras.optimizers.SGD(learning_rate=self.conf['lr'])
 
     def train(self, global_model: Model) -> None:

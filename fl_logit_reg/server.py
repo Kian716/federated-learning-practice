@@ -10,7 +10,7 @@ class Server:
         self.conf = conf
         self.dataset = tf.convert_to_tensor(test_dataset)
         self.model = Model(self.dataset[:, :-1].shape[1])
-        self.loss = tf.keras.losses.MeanSquaredError()
+        self.loss = tf.keras.losses.BinaryCrossentropy(from_logits=True)
 
     def aggregate(self, clients_vars: dict) -> None:
         # 计算每个client的参数改变量

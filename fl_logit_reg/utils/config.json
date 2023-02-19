@@ -5,11 +5,11 @@
 
     "num_epochs" : 5,
 
-    "lr" : 0.001,
+    "lr" : 0.5,
 
     "lambda" : 0.1,
 
-    "global_epochs" : 20
+    "global_epochs" : 50
 
 
 

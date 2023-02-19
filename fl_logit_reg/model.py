@@ -8,7 +8,8 @@ class Model(tf.keras.Sequential):
     def __init__(self, input_size) -> None:
         super().__init__()
         self.initializer = tf.keras.initializers.Zeros()
-        self.add(tf.keras.layers.Dense(input_dim=input_size, units=1, kernel_initializer=self.initializer, activation="sigmoid"))
+        self.add(tf.keras.layers.Dense(input_dim=input_size, units=1, kernel_initializer=self.initializer,
+                                       activation="sigmoid", kernel_regularizer=tf.keras.regularizers.L1(0.02)))
 
 
 if __name__ == '__main__':
