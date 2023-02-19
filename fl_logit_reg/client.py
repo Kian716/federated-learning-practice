@@ -1,5 +1,3 @@
-import pandas as pd
-
 from model import Model
 import tensorflow as tf
 import json
@@ -30,6 +28,8 @@ class Client:
             train_loss = self.loss(y_pred=self.local_model(X), y_true=y)
             train_acc = self.evaluate(self.local_model(X), y)
             print("epoch:{:d}, train_loss:{:.4f}, train_acc:{:.2f}".format(epoch+1, train_loss, train_acc))
+        # 将训练后的参数上传给server
+        return self.local_model.trainable_variables
 
     @staticmethod
     def evaluate(y_pred, y):

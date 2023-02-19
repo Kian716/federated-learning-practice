@@ -1,8 +1,13 @@
 {
     "no_model" : 2,
+
     "batch_size" : 16,
+
     "num_epochs" : 20,
-    "lr" : 0.15
+
+    "lr" : 0.15,
+
+    "lambda" : 0.1
 
 
 
