@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (loc_pred)" project-jdk-type="Python SDK" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="D:\software\Anaconda3\envs\loc_pred" project-jdk-type="Python SDK" />
+>>>>>>> ce4b15da6bf46f38f774eb4d5182ad94d27b073b
 </project>
